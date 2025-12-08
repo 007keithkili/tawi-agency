@@ -52,6 +52,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 2rem;
+            position: relative;
         }
 
         .logo {
@@ -61,6 +62,7 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            z-index: 1001;
         }
 
         .logo-img {
@@ -112,6 +114,10 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            color: var(--primary);
         }
 
         /* Hero Section */
@@ -437,7 +443,7 @@
             transform: translateY(0);
         }
 
-        /* Responsive Design */
+        /* Responsive Design - FIXED MOBILE NAVIGATION */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.8rem;
@@ -451,22 +457,46 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100vh;
                 background: var(--secondary);
                 flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                z-index: 999;
                 padding: 2rem;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             }
             
             .nav-links.active {
                 display: flex;
             }
             
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--gray-medium);
+            }
+            
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a:after {
+                display: none;
+            }
+            
             .mobile-menu {
                 display: block;
+            }
+            
+            .mobile-menu.active i:before {
+                content: '\f00d'; /* Changes to X icon when active */
             }
             
             .hero h1 {
@@ -520,6 +550,11 @@
             .logo {
                 font-size: 2.5rem;
             }
+            
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.8rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -540,11 +575,10 @@
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="services.html">services</a></li>
                     <li><a href="contacts.html">contacts</a></li>
-                    
                 </ul>
-                <div class="mobile-menu">
+                <button class="mobile-menu">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
             </nav>
         </div>
     </header>
@@ -592,7 +626,7 @@
                     
                     <!-- Service 2 -->
                     <div class="service-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Social Media Management" class="service-img">
+                        <img src="https://i.pinimg.com/1200x/60/1b/da/601bda44ec8a8373797658024597e11f.jpg" alt="Social Media Management" class="service-img">
                         <div class="service-content">
                             <h3>Social Media Management</h3>
                             <p>End-to-end social media management to build your brand presence and engage your target audience.</p>
@@ -624,7 +658,7 @@
                     
                     <!-- Service 4 -->
                     <div class="service-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Brand Strategy" class="service-img">
+                        <img src="https://i.pinimg.com/1200x/07/4c/f3/074cf37043ce272a46118e0fb05a5b34.jpg" alt="Brand Strategy" class="service-img">
                         <div class="service-content">
                             <h3>Brand Strategy & Identity</h3>
                             <p>Develop a compelling brand identity and strategy that resonates with your target audience.</p>
@@ -640,7 +674,7 @@
                     
                     <!-- Service 5 -->
                     <div class="service-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1551833996-2c1d6c21097f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Public Relations" class="service-img">
+                        <img src="https://i.pinimg.com/1200x/a5/7e/d6/a57ed65d8d684412890a0201e5e2f12a.jpg" alt="Public Relations" class="service-img">
                         <div class="service-content">
                             <h3>Public Relations</h3>
                             <p>Strategic PR campaigns to build brand credibility, manage reputation, and secure media coverage.</p>
@@ -661,7 +695,7 @@
                 <div class="services-grid">
                     <!-- Service 6 -->
                     <div class="service-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Web Development" class="service-img">
+                        <img src="https://i.pinimg.com/736x/4e/07/b3/4e07b3e95603be16ba8e1530b869bc7d.jpg" alt="Web Development" class="service-img">
                         <div class="service-content">
                             <h3>Web Design & Development</h3>
                             <p>Custom website design and development that delivers exceptional user experiences and drives conversions.</p>
@@ -677,7 +711,7 @@
                     
                     <!-- Service 7 -->
                     <div class="service-card fade-in">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mobile App Development" class="service-img">
+                        <img src="https://i.pinimg.com/1200x/dc/a8/2f/dca82f3d3bec7c989dd5544a7d97d38f.jpg" alt="Mobile App Development" class="service-img">
                         <div class="service-content">
                             <h3>Mobile App Development</h3>
                             <p>Native and cross-platform mobile applications that provide seamless user experiences on all devices.</p>
@@ -799,9 +833,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> hello@tawiagency.com</p>
-                    <p><i class="fas fa-phone"></i> +254 700 000 000</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                    <p><i class="fas fa-envelope"></i> infgo@tawiagency.co.ke</p>
+                    <p><i class="fas fa-phone"></i> +254 791292006 or +254 718784796</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Eldoret, Kenya</p>
                 </div>
                 <div class="footer-section">
                     <h3>Services</h3>
@@ -820,7 +854,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Tawi Agency. All rights reserved.</p>
+                <p>&copy; 2024 Tawi Agency. Developed by Quantum Solutions.All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -858,12 +892,30 @@
         // Initial check in case elements are already in view
         fadeInOnScroll();
 
-        // Mobile menu toggle
+        // Mobile menu toggle - FIXED VERSION
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         
         mobileMenu.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
         });
 
         // Tab functionality
