@@ -1454,5 +1454,18 @@
       "image": "https://i.pinimg.com/736x/5e/68/15/5e6815a4769c94348d08ed61716becb3.jpg"
     }
     </script>
+    // Prevent 404 from missing pages
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href$=".html"]');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (!this.getAttribute('href').includes('#')) {
+                e.preventDefault();
+                alert('Page under construction. Coming soon!');
+            }
+        });
+    });
+});
 </body>
 </html>
+
