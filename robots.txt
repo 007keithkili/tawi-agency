@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tawiagency.co.ke/sitemap.xml

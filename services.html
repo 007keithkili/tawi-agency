@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TAWI AGENCY - Our Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #010405;
+            --secondary: #ffffff;
+            --accent: #f5a623;
+            --gray-light: #f5f5f5;
+            --gray-medium: #e0e0e0;
+            --gray-dark: #333333;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            overflow-x: hidden;
+            background-color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--secondary);
+            box-shadow: 0 2px 15px rgba(46, 134, 241, 0.904);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            margin-right: 5px;
+            border-radius: 5px;
+        }
+
+        .logo i {
+            margin-right: 2px;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--secondary);
+            padding: 180px 2rem 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background: var(--gray-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--gray-medium);
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: var(--accent);
+        }
+
+        .tab-button.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .tab-button:hover {
+            color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-content {
+            padding: 1.8rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-content p {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .service-features li i {
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        .service-button {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .service-button:hover {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--secondary);
+        }
+
+        .process-section .section-title,
+        .process-section .section-subtitle {
+            color: var(--secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design - FIXED MOBILE NAVIGATION */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--secondary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                z-index: 999;
+                padding: 2rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--gray-medium);
+            }
+            
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-links a:after {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .mobile-menu.active i:before {
+                content: '\f00d'; /* Changes to X icon when active */
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 150px 1.5rem 80px;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .logo-img {
+                height: 30px;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="https://i.pinimg.com/736x/5e/68/15/5e6815a4769c94348d08ed61716becb3.jpg" alt="Tawi Agency Logo" class="logo-img">
+                    Tawi Agency
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="services.html">services</a></li>
+                    <li><a href="contacts.html">contacts</a></li>
+                </ul>
+                <button class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Services</h1>
+                <p>Comprehensive marketing, web development, and software solutions to grow your brand and business in the digital age.</p>
+                <button class="cta-button">Get Started <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Expertise</h2>
+            <p class="section-subtitle">We offer a complete range of marketing and technology services to help your business thrive</p>
+            
+            <div class="services-tabs">
+                <button class="tab-button active" data-tab="marketing">Marketing Services</button>
+                <button class="tab-button" data-tab="development">Web & Software Development</button>
+            </div>
+            
+            <!-- Marketing Services -->
+            <div class="tab-content active" id="marketing-tab">
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80" alt="Digital Marketing Strategy" class="service-img">
+                        <div class="service-content">
+                            <h3>Digital Marketing Strategy</h3>
+                            <p>Comprehensive digital marketing plans tailored to your business goals, audience, and industry landscape.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Market research & competitor analysis</li>
+                                <li><i class="fas fa-check"></i> Customized marketing roadmap</li>
+                                <li><i class="fas fa-check"></i> Performance metrics & KPIs</li>
+                                <li><i class="fas fa-check"></i> Ongoing optimization strategies</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card fade-in">
+                        <img src="https://i.pinimg.com/1200x/60/1b/da/601bda44ec8a8373797658024597e11f.jpg" alt="Social Media Management" class="service-img">
+                        <div class="service-content">
+                            <h3>Social Media Management</h3>
+                            <p>End-to-end social media management to build your brand presence and engage your target audience.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Content strategy & calendar</li>
+                                <li><i class="fas fa-check"></i> Platform-specific content creation</li>
+                                <li><i class="fas fa-check"></i> Community management & engagement</li>
+                                <li><i class="fas fa-check"></i> Performance analytics & reporting</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Content Marketing" class="service-img">
+                        <div class="service-content">
+                            <h3>Content Marketing</h3>
+                            <p>Strategic content creation that drives traffic, engages audiences, and converts visitors into customers.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Content strategy development</li>
+                                <li><i class="fas fa-check"></i> Blog posts, articles & whitepapers</li>
+                                <li><i class="fas fa-check"></i> Video content & infographics</li>
+                                <li><i class="fas fa-check"></i> SEO-optimized content creation</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-card fade-in">
+                        <img src="https://i.pinimg.com/1200x/07/4c/f3/074cf37043ce272a46118e0fb05a5b34.jpg" alt="Brand Strategy" class="service-img">
+                        <div class="service-content">
+                            <h3>Brand Strategy & Identity</h3>
+                            <p>Develop a compelling brand identity and strategy that resonates with your target audience.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Brand positioning & messaging</li>
+                                <li><i class="fas fa-check"></i> Visual identity development</li>
+                                <li><i class="fas fa-check"></i> Brand guidelines & voice</li>
+                                <li><i class="fas fa-check"></i> Competitive differentiation</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 5 -->
+                    <div class="service-card fade-in">
+                        <img src="https://i.pinimg.com/1200x/a5/7e/d6/a57ed65d8d684412890a0201e5e2f12a.jpg" alt="Public Relations" class="service-img">
+                        <div class="service-content">
+                            <h3>Public Relations</h3>
+                            <p>Strategic PR campaigns to build brand credibility, manage reputation, and secure media coverage.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Media relations & outreach</li>
+                                <li><i class="fas fa-check"></i> Press release writing & distribution</li>
+                                <li><i class="fas fa-check"></i> Crisis communication planning</li>
+                                <li><i class="fas fa-check"></i> Thought leadership positioning</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web & Software Development Services -->
+            <div class="tab-content" id="development-tab">
+                <div class="services-grid">
+                    <!-- Service 6 -->
+                    <div class="service-card fade-in">
+                        <img src="https://i.pinimg.com/736x/4e/07/b3/4e07b3e95603be16ba8e1530b869bc7d.jpg" alt="Web Development" class="service-img">
+                        <div class="service-content">
+                            <h3>Web Design & Development</h3>
+                            <p>Custom website design and development that delivers exceptional user experiences and drives conversions.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Responsive web design</li>
+                                <li><i class="fas fa-check"></i> Front-end & back-end development</li>
+                                <li><i class="fas fa-check"></i> E-commerce solutions</li>
+                                <li><i class="fas fa-check"></i> Content management systems</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 7 -->
+                    <div class="service-card fade-in">
+                        <img src="https://i.pinimg.com/1200x/dc/a8/2f/dca82f3d3bec7c989dd5544a7d97d38f.jpg" alt="Mobile App Development" class="service-img">
+                        <div class="service-content">
+                            <h3>Mobile App Development</h3>
+                            <p>Native and cross-platform mobile applications that provide seamless user experiences on all devices.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> iOS & Android development</li>
+                                <li><i class="fas fa-check"></i> Cross-platform solutions</li>
+                                <li><i class="fas fa-check"></i> UI/UX design for mobile</li>
+                                <li><i class="fas fa-check"></i> App store optimization</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 8 -->
+                    <div class="service-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Custom Software" class="service-img">
+                        <div class="service-content">
+                            <h3>Custom Software Development</h3>
+                            <p>Tailored software solutions designed to solve your specific business challenges and streamline operations.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Business process automation</li>
+                                <li><i class="fas fa-check"></i> Enterprise software solutions</li>
+                                <li><i class="fas fa-check"></i> API development & integration</li>
+                                <li><i class="fas fa-check"></i> Database design & management</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 9 -->
+                    <div class="service-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80" alt="UI/UX Design" class="service-img">
+                        <div class="service-content">
+                            <h3>UI/UX Design</h3>
+                            <p>User-centered design that creates intuitive, engaging experiences that keep users coming back.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> User research & personas</li>
+                                <li><i class="fas fa-check"></i> Wireframing & prototyping</li>
+                                <li><i class="fas fa-check"></i> Interaction design</li>
+                                <li><i class="fas fa-check"></i> Usability testing</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 10 -->
+                    <div class="service-card fade-in">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Digital Transformation" class="service-img">
+                        <div class="service-content">
+                            <h3>Digital Transformation</h3>
+                            <p>Comprehensive digital transformation strategies to modernize your business for the digital age.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Digital strategy consulting</li>
+                                <li><i class="fas fa-check"></i> Technology stack optimization</li>
+                                <li><i class="fas fa-check"></i> Cloud migration & solutions</li>
+                                <li><i class="fas fa-check"></i> Digital workflow implementation</li>
+                            </ul>
+                            <button class="service-button">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <p class="section-subtitle">A structured approach to delivering exceptional results for every project</p>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Strategy</h3>
+                    <p>We begin by deeply understanding your business, goals, and challenges to develop a customized strategy.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Planning & Design</h3>
+                    <p>We create detailed plans, designs, and prototypes to ensure we're aligned with your vision.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Execution & Development</h3>
+                    <p>Our expert team brings the plan to life with precision, creativity, and technical excellence.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Testing & Optimization</h3>
+                    <p>We rigorously test and refine our work to ensure quality, performance, and user satisfaction.</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3>Launch & Support</h3>
+                    <p>We deploy the final product and provide ongoing support to ensure long-term success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tawi Agency</h3>
+                    <p>Where Brands Grow. Rooted in Creativity, Growing with Purpose.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> infgo@tawiagency.co.ke</p>
+                    <p><i class="fas fa-phone"></i> +254 791292006 or +254 718784796</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Eldoret, Kenya</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="services.html">Digital Marketing</a>
+                    <a href="services.html">Web Development</a>
+                    <a href="services.html">Brand Strategy</a>
+                    <a href="services.html">Software Development</a>
+                    <a href="services.html">Public Relations</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="projects.html">Projects</a>
+                    <a href="#">Case Studies</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Growth Calculator</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tawi Agency. Developed by Quantum Solutions.All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.webkitBackdropFilter = 'blur(10px)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#fff';
+                header.style.webkitBackdropFilter = 'none';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Initial check in case elements are already in view
+        fadeInOnScroll();
+
+        // Mobile menu toggle - FIXED VERSION
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
